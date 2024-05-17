@@ -11,21 +11,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="16dp">
+        android:padding="16dp"
+        android:gravity="center_vertical">
 
         <CheckBox
             android:id="@+id/checkBox"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Producto"
-            android:textSize="18sp"
-            android:textColor="@color/black" />
-
-        <TextView
-            android:id="@+id/textViewCantidad"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:text="Producto"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:singleLine="true"
+            android:ellipsize="end"/>
+
+        <TextView
+            android:id="@+id/textViewCantidad"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:text="0"
             android:textSize="18sp"
@@ -39,16 +42,19 @@
             android:src="@drawable/check_circulo"
             android:visibility="gone"
             android:contentDescription="@string/check_icon_description"/>
+
         <Button
             android:id="@+id/buttonIncrease"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="+"
-            />
+            android:layout_marginStart="8dp"/>
+
         <Button
             android:id="@+id/buttonDecrease"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="-" />
+            android:text="-"
+            android:layout_marginStart="8dp"/>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

@@ -35,5 +35,13 @@ public class ListaCompraActivity extends AppCompatActivity {
             listaCompra.append("\nTotal: ").append(totalPrecio).append(" €");
             textViewLista.setText(listaCompra.toString());
         });
+
+        /*Button buttonVolverProductos = findViewById(R.id.buttonVolverProductos);
+        buttonVolverProductos.setOnClickListener(v -> {
+            // Crear un intent para volver a la actividad principal
+            Intent intent = new Intent(ListaCompraActivity.this, MainActivity.class);
+            startActivity(intent);
+            finish(); // Opcional: terminar la actividad actual para evitar que quede en la pila de actividades
+        });*/
     }
 }
