@@ -7,16 +7,17 @@
     <!-- Letrero "PRODUCTOS DISPONIBLES" en la parte superior -->
 
 
+    <!-- TextViewLista y ButtonVolverProductos siguen igual -->
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
         tools:listitem="@layout/item_producto" />
-
-    <!-- TextViewLista y ButtonVolverProductos siguen igual -->
 
     <TextView
         android:id="@+id/textViewLista"
@@ -29,6 +30,22 @@
         android:padding="16dp"
         android:textSize="18sp"
         android:gravity="center" />
+
+
+    <TextView
+        android:id="@+id/textViewTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total: "
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/textViewLista"
+        app:layout_constraintBottom_toTopOf="@id/recyclerView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:gravity="center"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"/>
 
     <Button
         android:id="@+id/buttonVolverProductos"

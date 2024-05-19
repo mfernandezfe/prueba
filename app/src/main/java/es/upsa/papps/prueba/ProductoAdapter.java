@@ -34,9 +34,10 @@ public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.Produc
         Producto producto = productos.get(position);
         holder.checkBox.setText(producto.getNombre());
         holder.textViewCantidad.setText("" + producto.getCantidad());
-        holder.checkBox.setChecked(producto.getCantidad() > 0);
+        holder.checkBox.setChecked(producto.isChecked());
 
         holder.checkBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            producto.setChecked(isChecked); // Actualizar estado isChecked del producto
             if (!isChecked) {
                 viewModel.actualizarCantidad(producto.getNombre(), 0);
             }
@@ -50,6 +51,7 @@ public class ProductoAdapter extends RecyclerView.Adapter<ProductoAdapter.Produc
             }
         });
     }
+
 
     @Override
     public int getItemCount() {

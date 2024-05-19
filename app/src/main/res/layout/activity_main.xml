@@ -83,7 +83,7 @@
         android:id="@+id/buttonVerLista"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Ver Lista de Compra"
+        android:text="Ver Total de la Compra"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -104,7 +104,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginBottom="100dp"/>
+        android:layout_marginBottom="100dp"
+        android:visibility="invisible"/>
 
 
 

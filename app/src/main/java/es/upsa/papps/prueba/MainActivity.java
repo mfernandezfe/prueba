@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private Button buttonStartShopping;
     private Button buttonVerLista;
     private TextView totalCompraTextView;
+    private double totalCompra; // Variable para almacenar el total de la compra
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         totalCompraTextView = findViewById(R.id.totalCompraTextView);
+        totalCompraTextView.setVisibility(View.INVISIBLE);
 
         buttonStartShopping = findViewById(R.id.buttonStartShopping);
         buttonStartShopping.setOnClickListener(new View.OnClickListener() {
@@ -46,13 +48,14 @@ public class MainActivity extends AppCompatActivity {
         buttonVerLista.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Pasar el total de la compra a ListaCompraActivity
                 Intent intent = new Intent(MainActivity.this, ListaCompraActivity.class);
+                intent.putExtra("TOTAL_COMPRA", totalCompra);
                 startActivity(intent);
             }
         });
 
         recyclerView.setVisibility(View.INVISIBLE);
-        buttonVerLista.setVisibility(View.INVISIBLE);
         totalCompraTextView.setVisibility(View.INVISIBLE);
 
         viewModel.getProductos().observe(this, productos -> {
@@ -66,6 +69,8 @@ public class MainActivity extends AppCompatActivity {
 
         viewModel.getTotalCompra().observe(this, total -> {
             totalCompraTextView.setText(String.format("Total de la compra: $%.2f", total));
+            // Guardar el total de la compra en la variable
+            totalCompra = total;
         });
     }
 
@@ -73,7 +78,6 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setVisibility(View.VISIBLE);
         buttonVerLista.setVisibility(View.VISIBLE);
-        totalCompraTextView.setVisibility(View.VISIBLE);
         findViewById(R.id.textViewTitulo).setVisibility(View.VISIBLE);
         findViewById(R.id.textViewStartShopping).setVisibility(View.GONE);
         buttonStartShopping.setVisibility(View.GONE);
